@@ -12,6 +12,7 @@ const db = mysql2.createConnection({
     password: '',
     database: 'painelcrud'
 });
+app.use(express.static('public'));
 // Testa a conexão com o banco de dados
 db.connect((err) => {
     if (err) throw err;
@@ -22,7 +23,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Rota principal 
-
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 })
@@ -54,7 +54,7 @@ app.post('/cadastro', (req, res) => {
         db.query('INSERT INTO cadastro_usuario (nome, email, senha) VALUES (?, ?, ?)', [nome, email, hash], (err, result) => {
             if (err) {
                 console.log(err);
-                res.status(500).send('Erro ao inserir os dados no banco de dados.');
+                res.status(500).send('Email ja cadastrado, favor inserir outro');
                 return;
             }
 

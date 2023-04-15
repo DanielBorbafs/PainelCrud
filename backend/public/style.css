@@ -107,7 +107,9 @@ a {
     position: relative;
     height: 100vh;
     width: 100%;
-    background: #7d2ae8;
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-position: center;
 
 }
 /* propriedade z-index serve para colocar elementos na frente de outros */
