@@ -107,8 +107,8 @@ app.post('/login', (req, res) => {
 
       // Gera um token para o usuário
       const token = jwt.sign({ id: usuario.id }, secretKey, { expiresIn: '1h' });
-
-      res.status(200).json({ token });
+      res.cookie('token', token, { httpOnly: true, secure: false });
+      res.redirect('/dashboard.html');
     });
   });
 });
