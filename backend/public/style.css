@@ -2,7 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-/* formatando a page */
+/* formatando page */
 * {
     margin: 0;
     padding: 0;
@@ -107,9 +107,8 @@ a {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url(/PainelCrud/backend/background.jpg);
-    background-size: cover;
-    background-position: center;
+    background: #7d2ae8;
+
 }
 /* propriedade z-index serve para colocar elementos na frente de outros */
 .home::before {

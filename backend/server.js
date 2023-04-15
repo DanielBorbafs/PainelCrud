@@ -12,16 +12,21 @@ const db = mysql2.createConnection({
     password: '',
     database: 'painelcrud'
 });
-
 // Testa a conexão com o banco de dados
 db.connect((err) => {
     if (err) throw err;
     console.log('Conectado ao banco de dados!');
 });
-
 // Configura o Express para reconhecer o corpo da solicitação como JSON
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// Rota principal 
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+})
+
 
 // Chave secreta para assinatura do token
 const secretKey = 'minhaChaveSecreta123';
@@ -56,6 +61,8 @@ app.post('/cadastro', (req, res) => {
             res.status(200).send('Cadastro realizado com sucesso!');
         });
     });
+    console.log(req.body)
+
 });
 
 
