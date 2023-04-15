@@ -26,6 +26,7 @@
                     <div class="input_box">
                         <input type="email" placeholder="Entre com seu email" required/>
                         <i class="uil uil-envelop-alt email"></i>
+                        <i class="uil uil-envelope-alt email"></i>
                     </div>
                     <div class="input_box">
                         <input type="password" placeholder="Entre com sua senha" required/>
@@ -48,23 +49,25 @@
 
             <!--Tela de registro-->
             <div class="form signup_form">
-                <form action="#">
+                <form action="/cadastro" method="POST">
                     <h2>Registre-se</h2>
-                    <div class="input_box">
-                        <input type="email" placeholder="Entre com seu email" required />
+                       <div class="input_box">
+                        <input type="email" name="nome" placeholder="Digite seu nome" required />
                         <i class="uil uil-envelope-alt email"></i>
                     </div>
+
+
                     <div class="input_box">
-                        <input type="password" placeholder="Defina uma senha" required />
-                        <i class="uil uil-lock password"></i>
-                        <i class="uil uil-eye-slash pw_hide"></i>
-                    </div>
-                    <div class="input_box">
-                        <input type="password" placeholder="Confirme sua senha" required>
-                        <i class="uil uil-lock password"></i>
-                        <i class="uil uil-eye-slash pw_hide"></i>
+                        <input type="email" name="email" placeholder="Entre com seu email" required />
+                        <i class="uil uil-envelope-alt email"></i>
                     </div>
 
+                    <div class="input_box">
+                        <input type="password" name="password" placeholder="Defina uma senha" required />
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+                    </div>
+    
                     <button class="button">Completar Registro</button>
                     
                     <div class="login_signup">Ja possui conta? <a href="#" id="login">Login</a></div>

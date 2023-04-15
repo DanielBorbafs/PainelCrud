@@ -206,6 +206,11 @@ a {
 .input_box i.password {
     left: 0;
 }
+
+.input_box.usericon 
+{
+ background-color: #7d2ae8;
+}
 .input_box input:focus ~ i.email,
 .input_box input:focus ~ i.password {
     color: #7d2ae8;
