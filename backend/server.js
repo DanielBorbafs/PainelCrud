@@ -3,9 +3,6 @@ const mysql2 = require('mysql2')
 const app = express();
 const port = 3000;
 const bodyParser = require('body-parser')
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const router = express.Router();
 const handleLogin = require('./routes/handleLogin');
 const handleCadastro = require('./routes/handleCadastro')
 
