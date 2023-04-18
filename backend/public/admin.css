@@ -64,7 +64,7 @@ brand-icons span {
 }
 
 .menu-head ul {
-     margin-left: 20rem;   
+     margin-left: 2rem;   
 }
 
 .menu-head {
@@ -84,21 +84,22 @@ brand-icons span {
     
 }
 
+.menu-block li {
+    margin-left: -1.5rem;
+}
+
 .sidebar-menu li a {
     color: #efefef;
     font-size: .7rem;
     display: flex;
     align-items: center;
-    
-}
-
-.menu-block li {
-    margin-left: -1.5rem;
 }
 
 .sidebar-menu li a span {
     font-size: 1rem;
     display: inline-block;
+    margin-right: .8rem;
+
 }
 
 .main-content {
