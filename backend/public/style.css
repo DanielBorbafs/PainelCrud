@@ -100,16 +100,110 @@ a {
     transition: background 0s;
 }
 
+.container {
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: left;
+    background-color: transparent;
+    flex-direction: row;
+}
+
+.card {
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    width: 50%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-image: linear-gradient(#333, #333);
+    transition: all .5s;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    background-image: linear-gradient(#423f3f, #000000);
+}
+
+.card .img {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-image: url('./background1.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: all .5s;
+    z-index: 2;
+    position: relative;
+    opacity: .8;
+}
+
+.card .img span {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 100;
+    font-style: italic;
+    transition: all .5s;
+}
+
+.card:hover .img {
+    width: 430px;
+    opacity: 1;
+}
+
+.card:hover .img span {
+    font-size: 28px;
+}
+
+.card .content {
+    padding: 0px 20px;
+    height: 0;
+    opacity: 0;
+    transition: all .5s;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    transform: translateY(30px);
+}
+
+.card:hover .content {
+    height: 260px;
+    padding: 20px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card .content p {
+    margin: 0;
+}
+
+.card .content .desc {
+    font-size: large;
+    color: #bd5215;
+}
+.card .content .title{
+    color: white;
+}
 
 
 /* Tela inicial */ 
+
 .home {
     position: relative;
     height: 100vh;
     width: 100%;
     background-image: url(background.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: center;;
 
 }
 /* propriedade z-index serve para colocar elementos na frente de outros */
@@ -123,7 +217,10 @@ a {
     opacity: 0;
     pointer-events: none;
     transition: all 0.5s ease-out;
-}  
+} 
+.paralax {
+    background: #ff0000;
+}
 /* Pseudo elementos para cobrir classes */
 .home.show::before {
     opacity: 1;
