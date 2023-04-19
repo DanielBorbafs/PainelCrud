@@ -218,9 +218,6 @@ a {
     pointer-events: none;
     transition: all 0.5s ease-out;
 } 
-.paralax {
-    background: #ff0000;
-}
 /* Pseudo elementos para cobrir classes */
 .home.show::before {
     opacity: 1;
