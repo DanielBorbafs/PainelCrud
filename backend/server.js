@@ -5,6 +5,8 @@ const port = 3000;
 const bodyParser = require('body-parser')
 const handleLogin = require('./routes/handleLogin');
 const handleCadastro = require('./routes/handleCadastro')
+const handleCompra = require('./routes/handleCompra')
+const cookieParser = require('cookie-parser');
 
 const db = mysql2.createConnection({
     host: 'localhost',
@@ -12,6 +14,7 @@ const db = mysql2.createConnection({
     password: '',
     database: 'painelcrud'
 });
+app.use(cookieParser());
 app.use(express.static('public'));
 // Testa a conexão com o banco de dados
 db.connect((err) => {
@@ -28,9 +31,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/login', (req, res) => {
-    handleLogin(req, res, app, db);
+    handleLogin(req, res, db);
 });
 app.post('/cadastro', handleCadastro);
+
+app.post('/processar_compra', handleCompra);
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);

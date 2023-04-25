@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Ecommerce</title>
+    <style>
+      /* estilo do card */
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        background-color: rgb(83, 72, 61);
+        width: 300px;
+        margin: auto;
+        color: rgb(17, 2, 2);
+        border-radius: 60px;
+      }
+      .card img {
+        max-width: 100%;
+        height: 200px;
+        border-radius: 40px;
+    
+      }
+      /* estilo do título */
+      .card h2 {
+        font-size: 24px;
+        margin: 0 0 10px 0;
+      }
+      /* estilo dos inputs */
+      .card input[type=text], .card input[type=number] {
+        margin-top: 2px;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid rgb(71, 68, 68);
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+        color: rgb(255, 255, 255);
+        background-color: black;
+      }
+      /* estilo do botão */
+      .card input[type=submit] {
+        align-items: center;
+        background-color: #086317;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-left: 30%
+      }
+      /* estilo do botão quando hover */
+      .card input[type=submit]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <form action="/processar_compra" method="post">
+        <img src="/imgs/footer.jpg" alt="">
+        <input type="text" id="produto" name="produto" value="Produto X" readonly>
+        
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" name="quantidade" required oninput="calcularPreco()">
+  
+        <label for="preco">Preço:</label>
+        <input type="text" id="preco" name="preco" value="10.00" readonly><br>
+        
+        <label for="total">Total:</label>
+        <input type="text" id="total" name="total" readonly><br>
+        
+        <input type="submit" value="Comprar">
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+const quantidadeInput = document.getElementById("quantidade");
+const precoInput = document.getElementById("preco");
+const totalInput = document.getElementById("total");
+
+function calcularPreco() {
+    const quantidade = parseFloat(quantidadeInput.value);
+    const preco = parseFloat(precoInput.value);
+
+    if (!isNaN(quantidade) && !isNaN(preco)) {
+        totalInput.value = (quantidade * preco).toFixed(2);
+    } else {
+        totalInput.value = "";
+    }
+}
+
+</script>
