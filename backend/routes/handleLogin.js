@@ -55,7 +55,7 @@ db.query('SELECT * FROM cadastro_usuario WHERE email = ?', [email], (err, result
     // Gera um token para o usuário
     const token = jwt.sign({ id: usuario.id }, secretKey, { expiresIn: '1h' });
     res.cookie('token', token, { httpOnly: true, secure: false });
-    res.redirect('/PageAdmin.html');
+    res.redirect('../pages/PageAdmin.html');
   });
 });
 };
