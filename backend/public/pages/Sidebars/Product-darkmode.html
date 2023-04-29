@@ -1,0 +1,230 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Mode</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/scripts.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h2>Light and Dark</h2>
+      <div>
+        <input type="checkbox" name="change-theme" id="change-theme" />
+        <label for="change-theme">
+          <i class="bi bi-sun"></i>
+          <i class="bi bi-moon"></i
+        ></label>
+      </div>
+    </header>
+    <main>
+      <div class="card">
+        <div class="card-image">
+          <span>Nike</span>
+          <img src="../../imgs/background.jpg" alt="Tenis" />
+        </div>
+        <div class="card-details">
+          <h2>Tênis Nike</h2>
+          <p class="subtitle">Excelente para corridas</p>
+          <p class="description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus
+            officiis esse dolor eveniet quae quasi, similique quisquam? Maiores
+            cum eaque reprehenderit nostrum, quas accusantium, commodi eius eos
+            consequuntur, dolores hic.
+          </p>
+          <div class="price-container">
+            <span class="price">R$299,90</span>
+            <button class="btn">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+<style>
+        * {
+    font-family: Helvetica;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+    html,
+    body {
+    height: 100%;
+    background-color: #eceff1;
+    transition: 0.3s;
+    }
+
+    input[type="checkbox"] {
+    display: none;
+    }
+
+    .bi {
+    font-size: 1.3rem;
+    cursor: pointer;
+    }
+
+    .bi-moon {
+    display: none;
+    }
+
+    header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #eceff1;
+    box-shadow: 0.5px 0.5px 10px 0.5px #000;
+    padding: 1rem 2rem;
+    position: relative;
+    }
+
+    main {
+    display: flex;
+    justify-content: center;
+    }
+
+    .card {
+    margin-top: 4rem;
+    display: flex;
+    width: 60%;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-image {
+    padding: 2rem;
+    width: 50%;
+    position: relative;
+    background-color: #eff7fc;
+    overflow: visible;
+    }
+
+    .card-image span {
+    font-size: 6rem;
+    font-weight: 900;
+    }
+
+    .card img {
+    width: 90%;
+    transform: rotate(0deg);
+    position: center;
+    right: -1rem;
+    top: 10rem;
+    border-radius: 5px;
+    }
+
+    .card-details {
+    width: 50%;
+    padding: 2rem;
+    }
+
+    .card-details h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    }
+
+    .subtitle {
+    color: #444;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    }
+
+    .description {
+    line-height: 1.6rem;
+    margin-bottom: 2rem;
+    }
+
+    .price-container {
+    display: flex;
+    justify-content: space-between;
+    }
+
+    .price {
+    font-weight: 900;
+    font-size: 2rem;
+    }
+
+    .btn {
+    background-color: #444;
+    width: 7rem;
+    height: 3rem;
+    border: none;
+    border-radius: 3rem;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    }
+
+    /* Dark theme */
+    .dark,
+    .dark header {
+    background-color: #263238;
+    color: #fff;
+    }
+
+    .dark .bi-sun {
+    display: none;
+    }
+
+    .dark .bi-moon {
+    display: block;
+    }
+
+    .dark .card {
+    background-color: #37474f;
+    }
+
+    .dark .card-image {
+    background-color: #273035;
+    }
+
+    .dark .subtitle {
+    color: #67b4f3;
+    }
+
+    .dark .description {
+    color: #2196f3;
+    }
+
+    .dark .btn {
+    background-color: #67b4f3;
+    }
+</style>
+<script>
+    const changeThemeBtn = document.querySelector("#change-theme");
+
+// Toggle dark mode
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+}
+
+// Load light or dark mode
+function loadTheme() {
+  const darkMode = localStorage.getItem("dark");
+
+  if (darkMode) {
+    toggleDarkMode();
+  }
+}
+
+loadTheme();
+
+changeThemeBtn.addEventListener("change", function () {
+  toggleDarkMode();
+
+  // Save or remove dark mode from localStorage
+  localStorage.removeItem("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("dark", 1);
+  }
+});
+</script>
+</html>
